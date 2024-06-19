@@ -1,0 +1,43 @@
+# Initialize an empty dictionary to store student data
+students = {}
+
+# Function to add a new student
+def add_student(student_id, name, age, major):
+    students[student_id] = {
+        'name': name,
+        'age': age,
+        'major': major
+    }
+
+# Function to remove a student
+def remove_student(student_id):
+    if student_id in students:
+        del students[student_id]
+    else:
+        print(f"Student ID {student_id} not found.")
+
+# Function to get a student's information
+def get_student(student_id):
+    return students.get(student_id, f"Student ID {student_id} not found.")
+
+# Function to list all students
+def list_students():
+    if students:
+        for student_id, info in students.items():
+            print(f"ID: {student_id}, Name: {info['name']}, Age: {info['age']}, Major: {info['major']}")
+    else:
+        print("No students available.")
+
+# Adding some students
+add_student(1, 'Alice', 20, 'Computer Science')
+add_student(2, 'Bob', 21, 'Mathematics')
+add_student(3, 'Charlie', 22, 'Physics')
+
+# Removing a student
+remove_student(2)
+
+# Getting a student's information
+print(get_student(1))
+
+# Listing all students
+list_students()
